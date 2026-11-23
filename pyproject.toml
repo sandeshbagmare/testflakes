@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "testflakes"
+version = "0.1.0"
+description = "Rank flaky tests from a history of JUnit XML runs"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Sandesh Bagmare" }]
+keywords = ["testing", "flaky-tests", "junit", "ci", "pytest", "reliability"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.scripts]
+testflakes = "testflakes.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/sandeshbagmare/testflakes"
+Issues = "https://github.com/sandeshbagmare/testflakes/issues"
+Changelog = "https://github.com/sandeshbagmare/testflakes/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/testflakes"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]

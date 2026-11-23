@@ -1,22 +1,23 @@
-# testflakes
+<p align="center">
+  <img src="https://raw.githubusercontent.com/sandeshbagmare/testflakes/main/assets/banner.svg" width="100%" alt="testflakes: rank your flaky tests from the history you already have">
+</p>
 
-Which tests are flaky? Read your CI history and find out.
+<p align="center">
+  <a href="https://pypi.org/project/testflakes/"><img alt="PyPI version" src="https://img.shields.io/pypi/v/testflakes.svg"></a>
+  <a href="https://pypi.org/project/testflakes/"><img alt="Python versions" src="https://img.shields.io/pypi/pyversions/testflakes.svg"></a>
+  <a href="https://pypi.org/project/testflakes/"><img alt="Downloads" src="https://img.shields.io/pypi/dm/testflakes.svg"></a>
+  <a href="https://github.com/sandeshbagmare/testflakes/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/sandeshbagmare/testflakes/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="https://github.com/sandeshbagmare/testflakes/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/pypi/l/testflakes.svg"></a>
+  <a href="https://sandeshbagmare.github.io/testflakes/"><img alt="docs" src="https://img.shields.io/badge/docs-online-2ea44f.svg"></a>
+  <a href="https://pypi.org/project/testflakes/"><img alt="zero dependencies" src="https://img.shields.io/badge/dependencies-0-2ea44f.svg"></a>
+</p>
 
-[![PyPI](https://img.shields.io/pypi/v/testflakes.svg)](https://pypi.org/project/testflakes/)
-[![Python](https://img.shields.io/pypi/pyversions/testflakes.svg)](https://pypi.org/project/testflakes/)
-[![tests](https://github.com/sandeshbagmare/testflakes/actions/workflows/ci.yml/badge.svg)](https://github.com/sandeshbagmare/testflakes/actions/workflows/ci.yml)
-[![license](https://img.shields.io/pypi/l/testflakes.svg)](https://github.com/sandeshbagmare/testflakes/blob/main/LICENSE)
+<h3 align="center">rank your flaky tests from the history you already have</h3>
+<p align="center"><em>Standard library only. No runtime dependencies. Python 3.9+.</em></p>
 
-```console
-$ testflakes reports/*.xml --top 5
-test                                          score  runs  fail  flip
-tests.test_api::test_upload                   0.67    30     9    10
-tests.test_db::test_connection_pool           0.33    30     4     5
-```
-
-Every CI run leaves a JUnit XML behind. Collect a few and the pattern shows up: the
-same test passes, fails, passes, with no code change in between. `testflakes` scores
-that pattern instead of guessing, and it can also tell you what broke since yesterday.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/sandeshbagmare/testflakes/main/assets/how.svg" width="720" alt="how testflakes fits in">
+</p>
 
 ## Install
 

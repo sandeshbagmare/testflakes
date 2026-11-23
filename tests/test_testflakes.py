@@ -281,7 +281,7 @@ class TestCommandLine:
         after = tmp_path / "after.xml"
         before.write_text(doc(case("a")), encoding="utf-8")
         after.write_text(doc(case("a", "failure")), encoding="utf-8")
-        assert self.run([str(before), str(after), "--new", "before"]) == 1
+        assert self.run([str(before), str(after), "--new"]) == 1
         assert "mod::a" in capsys.readouterr().out
 
     def test_new_without_regressions_exits_zero(self, tmp_path):
@@ -289,7 +289,7 @@ class TestCommandLine:
         after = tmp_path / "after.xml"
         for path in (before, after):
             path.write_text(doc(case("a")), encoding="utf-8")
-        assert self.run([str(before), str(after), "--new", "before"]) == 0
+        assert self.run([str(before), str(after), "--new"]) == 0
 
     def test_missing_file_exits_two(self, tmp_path, capsys):
         assert self.run([str(tmp_path / "nope.xml")]) == 2
@@ -306,3 +306,45 @@ class TestCommandLine:
         path.write_text(doc(case("a")), encoding="utf-8")
         assert self.run([str(path), "--min-runs", "3"]) == 0
         assert "no test appears in 3 reports" in capsys.readouterr().out
+
+
+class TestRigour:
+    """The --new path, its argument checking and its JSON shape."""
+
+    def write(self, tmp_path, name, cases):
+        path = tmp_path / name
+        path.write_text(doc(*cases), encoding="utf-8")
+        return str(path)
+
+    def test_new_needs_exactly_two_reports(self, tmp_path, capsys):
+        from testflakes.__main__ import main
+
+        path = self.write(tmp_path, "a.xml", [case("a")])
+        assert main([path, "--new"]) == 2
+        assert "BEFORE AFTER" in capsys.readouterr().err
+
+    def test_new_lists_the_failures(self, tmp_path, capsys):
+        from testflakes.__main__ import main
+
+        before = self.write(tmp_path, "a.xml", [case("a"), case("b")])
+        after = self.write(tmp_path, "b.xml", [case("a", "failure"), case("b")])
+        assert main([before, after, "--new"]) == 1
+        out = capsys.readouterr().out
+        assert "mod::a" in out
+        assert "1 newly failing" in out
+
+    def test_new_as_json(self, tmp_path, capsys):
+        from testflakes.__main__ import main
+
+        before = self.write(tmp_path, "a.xml", [case("a")])
+        after = self.write(tmp_path, "b.xml", [case("a", "error")])
+        assert main([before, after, "--new", "--json"]) == 1
+        assert json.loads(capsys.readouterr().out) == {"newly_failing": ["mod::a"]}
+
+    def test_a_malformed_report_exits_two(self, tmp_path, capsys):
+        from testflakes.__main__ import main
+
+        path = tmp_path / "bad.xml"
+        path.write_text("<testsuite>", encoding="utf-8")
+        assert main([str(path)]) == 2
+        assert "error" in capsys.readouterr().err

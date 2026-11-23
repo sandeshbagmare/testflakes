@@ -58,7 +58,7 @@ regressions = newly_failing(runs[-2], runs[-1])
 ```console
 testflakes reports/*.xml --top 10 --min-runs 5      # the table above
 testflakes reports/*.xml --json                      # for a dashboard
-testflakes yesterday.xml today.xml --new yesterday   # what broke, exit 1 if anything
+testflakes yesterday.xml today.xml --new             # what broke, exit 1 if anything
 ```
 
 `--new` is the CI gate: it prints the tests that fail today and were not failing

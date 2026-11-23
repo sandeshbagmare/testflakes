@@ -21,8 +21,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--json", action="store_true", help="print JSON")
     parser.add_argument(
         "--new",
-        metavar="BEFORE",
-        help="take the last report as AFTER and list tests that newly fail since BEFORE",
+        action="store_true",
+        help="treat the first report as BEFORE and the last as AFTER, listing new failures",
     )
     args = parser.parse_args(argv)
 
@@ -39,7 +39,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.new:
         if len(runs) != 2:
             print(
-                "--new takes the history report and the new report: BEFORE AFTER", file=sys.stderr
+                "--new needs exactly two reports: BEFORE AFTER", file=sys.stderr
             )
             return 2
         fresh = newly_failing(runs[0], runs[1])

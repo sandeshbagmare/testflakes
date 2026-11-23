@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="testflakes: rank your flaky tests from the history you already have">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="hsl(46 68% 12%)">
+        <animate attributeName="stop-color" values="hsl(46 68% 12%);hsl(46 62% 20%);hsl(46 68% 12%)" dur="14s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="1" stop-color="hsl(46 62% 20%)">
+        <animate attributeName="stop-color" values="hsl(46 62% 20%);hsl(46 68% 12%);hsl(46 62% 20%)" dur="14s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.28" r="0.62">
+      <stop offset="0" stop-color="hsl(12 88% 66%)" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="hsl(12 88% 66%)" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="hsl(46 40% 40%)" opacity="0.35"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="300" rx="0" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+  <rect width="1200" height="300" fill="url(#glow)"/>
+  <g transform="translate(880, -10)">
+    <line x1="24" y1="302" x2="296" y2="302" stroke="hsl(12 92% 78%)" stroke-width="2" stroke-linecap="round"/><rect x="40" y="230" width="22" height="70" rx="6" fill="hsl(12 88% 66%)" opacity="0.85"><animate attributeName="height" values="70;24;70" dur="2.40s" repeatCount="indefinite" begin="-0.00s"/><animate attributeName="y" values="230;276;230" dur="2.40s" repeatCount="indefinite" begin="-0.00s"/></rect><rect x="74" y="182" width="22" height="118" rx="6" fill="hsl(12 88% 66%)" opacity="0.85"><animate attributeName="height" values="118;72;118" dur="2.62s" repeatCount="indefinite" begin="-0.30s"/><animate attributeName="y" values="182;228;182" dur="2.62s" repeatCount="indefinite" begin="-0.30s"/></rect><rect x="108" y="248" width="22" height="52" rx="6" fill="hsl(12 88% 66%)" opacity="0.85"><animate attributeName="height" values="52;18;52" dur="2.84s" repeatCount="indefinite" begin="-0.60s"/><animate attributeName="y" values="248;282;248" dur="2.84s" repeatCount="indefinite" begin="-0.60s"/></rect><rect x="142" y="150" width="22" height="150" rx="6" fill="hsl(12 88% 66%)" opacity="0.85"><animate attributeName="height" values="150;104;150" dur="3.06s" repeatCount="indefinite" begin="-0.90s"/><animate attributeName="y" values="150;196;150" dur="3.06s" repeatCount="indefinite" begin="-0.90s"/></rect><rect x="176" y="204" width="22" height="96" rx="6" fill="hsl(12 88% 66%)" opacity="0.85"><animate attributeName="height" values="96;50;96" dur="3.28s" repeatCount="indefinite" begin="-1.20s"/><animate attributeName="y" values="204;250;204" dur="3.28s" repeatCount="indefinite" begin="-1.20s"/></rect><rect x="210" y="168" width="22" height="132" rx="6" fill="hsl(12 88% 66%)" opacity="0.85"><animate attributeName="height" values="132;86;132" dur="3.50s" repeatCount="indefinite" begin="-1.50s"/><animate attributeName="y" values="168;214;168" dur="3.50s" repeatCount="indefinite" begin="-1.50s"/></rect><rect x="244" y="240" width="22" height="60" rx="6" fill="hsl(12 88% 66%)" opacity="0.85"><animate attributeName="height" values="60;18;60" dur="3.72s" repeatCount="indefinite" begin="-1.80s"/><animate attributeName="y" values="240;282;240" dur="3.72s" repeatCount="indefinite" begin="-1.80s"/></rect>
+  </g>
+  <text x="64" y="72" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" letter-spacing="5" fill="hsl(12 92% 78%)" opacity="0.85">TEST HEALTH</text>
+  <text x="62" y="146" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="60" font-weight="800" fill="#f8fafc">testflakes</text>
+  <text x="64" y="192" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="19" fill="#cbd5e1">rank your flaky tests from the history you already have</text>
+  <g transform="translate(64, 218)">
+    <rect width="300" height="40" rx="10" fill="#0b1220" opacity="0.72" stroke="hsl(12 92% 78%)" stroke-opacity="0.45"/>
+    <text x="18" y="26" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="hsl(12 92% 78%)">$ pip install testflakes</text>
+    <rect width="2" height="18" x="286" y="11" fill="hsl(12 92% 78%)">
+      <animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>
